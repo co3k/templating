@@ -53,4 +53,12 @@ class sfTemplateStorage
   {
     return $this->renderer;
   }
+
+  /**
+   * Sets the renderer.
+   */
+  public function setRenderer($renderer = null)
+  {
+    $this->renderer = $renderer;
+  }
 }

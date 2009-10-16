@@ -13,7 +13,7 @@ require_once dirname(__FILE__).'/../lib/lime/lime.php';
 require_once dirname(__FILE__).'/../../lib/sfTemplateAutoloader.php';
 sfTemplateAutoloader::register();
 
-$t = new lime_test(2);
+$t = new lime_test(3);
 
 // __construct() __toString()
 $t->diag('__construct() __toString()');
@@ -25,3 +25,8 @@ $t->is((string) $storage, 'foo', '__toString() returns the template name');
 $t->diag('->getRenderer()');
 $storage = new sfTemplateStorage('foo', $renderer = new sfTemplateRendererPhp());
 $t->ok($storage->getRenderer() === $renderer, '->getRenderer() returns the renderer');
+
+// ->setRenderer()
+$t->diag('->setRenderer()');
+$storage->setRenderer('bar');
+$t->ok($storage->getRenderer() === 'bar', '->setRenderer() sets the renderer');
